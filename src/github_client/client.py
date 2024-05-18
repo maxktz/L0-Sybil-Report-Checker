@@ -1,7 +1,7 @@
 import re
 from typing import Literal
 
-import msgspec
+import orjson
 from curl_cffi.requests import AsyncSession, Response
 from yarl import URL
 
@@ -54,7 +54,7 @@ class GithubClient:
             }
         )
         response = await self._get_request(url)
-        results = msgspec.json.decode(response.text)
+        results = orjson.loads(response.text)
         issues = {r["number"]: Issue(r) for r in results}
         page_nums = {
             re.search(r'rel="(.+?)"', s).group(1): int(re.search(r"page=(\d+)", s).group(1))
