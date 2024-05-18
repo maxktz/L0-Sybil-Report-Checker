@@ -1,11 +1,10 @@
 FROM python:3.12
 
-RUN python3 -m pip install poetry
+RUN pip install poetry==1.8.3
 
-COPY pyproject.toml /app/pyproject.toml
+COPY pyproject.toml poetry.lock /app/
 WORKDIR /app
-RUN poetry install
-RUN poetry shell
 
+RUN poetry install --without dev
 COPY . /app
-CMD ["python3", "main.py"]
+CMD ["poetry", "run", "python", "main.py"]
