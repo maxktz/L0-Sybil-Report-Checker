@@ -1,6 +1,8 @@
+*.session
+*.session-journal
 /.google_service_key.json
-temp.json
-temp.html
+/sybil-report.csv.zip
+/sybil-report.csv
 .vscode
 .DS_Store
 .obsidian

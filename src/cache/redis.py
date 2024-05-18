@@ -3,14 +3,13 @@ from __future__ import annotations
 from functools import wraps
 from typing import TYPE_CHECKING
 
-from bot.cache.serialization import AbstractSerializer, PickleSerializer
-from bot.core.loader import redis_client
+from src.cache.serialization import AbstractSerializer, PickleSerializer
+from src.core.loader import redis_client
 
-if TYPE_CHECKING:
-    from datetime import timedelta
-    from typing import Any, Callable
+from datetime import timedelta
+from typing import Any, Callable
 
-    from redis.asyncio import Redis
+from redis.asyncio import Redis
 
 
 DEFAULT_TTL = 10

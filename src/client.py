@@ -1,5 +1,4 @@
 import re
-from typing import Literal
 
 import msgspec
 from curl_cffi.requests import AsyncSession, Response
@@ -27,8 +26,6 @@ class GithubClient:
         filter_: IssuesFilter = "all",
         page: int = 1,
         per_page: int = 30,
-        direction: Literal["asc", "desc"] = "desc",
-        state: Literal["open", "closed", "all"] = "all",
         **kwargs,
     ) -> tuple[dict[int, Issue], int]:
         """does not contain all available parameters, see
@@ -47,10 +44,8 @@ class GithubClient:
             {
                 **kwargs,
                 "filter": filter_,
-                "state": state,
                 "page": page,
                 "per_page": per_page,
-                "direction": direction,
             }
         )
         response = await self._get_request(url)

@@ -3,13 +3,6 @@ from typing import Literal, Optional, TypedDict
 IssuesFilter = Literal["assigned", "created", "mentioned", "subscribed", "repos", "all"]
 
 
-class PageNumbers(TypedDict):
-    prev: Optional[int] = None
-    next: Optional[int] = None
-    first: Optional[int] = None
-    last: Optional[int] = None
-
-
 class Issue(TypedDict):
     id: int
     node_id: str
