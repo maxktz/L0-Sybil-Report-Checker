@@ -15,6 +15,6 @@ Address, Github Issue Numbers
     file.write_text(text, encoding="utf8")
     zipped_file = file.with_suffix(".csv.zip")
     with zipfile.ZipFile(zipped_file.as_posix(), "w") as zipf:
-        zipf.write(file, compress_type=zipfile.ZIP_DEFLATED)
+        zipf.write(file.name, compress_type=zipfile.ZIP_DEFLATED)
     file.unlink()
     return zipped_file

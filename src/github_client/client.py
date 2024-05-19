@@ -27,7 +27,7 @@ class GithubClient:
         filter_: IssuesFilter = "all",
         page: int = 1,
         per_page: int = 30,
-        direction: Literal["asc", "desc"] = "desc",
+        direction: Literal["asc", "desc"] = "asc",
         state: Literal["open", "closed", "all"] = "all",
         **kwargs,
     ) -> tuple[dict[int, Issue], int]:

@@ -23,6 +23,8 @@ async def get_addresses_on_page(page: int) -> SybilAddresses:
         repository="LayerZero-Labs/sybil-report",
         page=page,
         per_page=100,
+        direction="asc",
+        filter_="all",
     )
     logger.info(f"got {len(issues)} issues on page {page}")
     addresses: SybilAddresses = {}

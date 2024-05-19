@@ -34,6 +34,7 @@ Unique addresses: {len(addrs)}
 Issues: {highest_issue_number}
 Non-empty issues: {non_empty_issues}"""
 
+        logger.info("Sending file to chat")
         async with telegram_client:
             await telegram_client.send_file(
                 entity=settings.CHAT_ID_TO_SEND,
@@ -41,7 +42,7 @@ Non-empty issues: {non_empty_issues}"""
                 caption=text,
                 parse_mode="HTML",
             )
-        logger.info("Sent message, sleeping delay")
+        logger.success("Sent message, sleeping delay")
         await asyncio.sleep(DELAY)
 
 
